@@ -45,35 +45,35 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
 
   useEffect(() => {
     widgetApi.getUserInformation().then((user) => {
-      console.log("user", user);
       setUser(user);
       verifyToken(user);
     });
   }, []);
+  
 
   useEffect(() => {
     if (isLoggedIn) {
-      const queryString = window.location.search;
-
-      let q= queryString.split('=')
-     
-       console.log("email" , q[1])
-
-      console.log("User logged in succcessfully");
+      // localStorage.setItem("view_profile_email", "dan.stone@fgsglobal.com");
+      const bioEmail = localStorage.getItem("view_profile_email");
+      // const bioEmail = "dan.stone@fgsglobal.com"
+      console.log("User logged in succcessfully" , bioEmail);
+      if(bioEmail){
+        handleUserDetails({email:bioEmail});
+      }
       //   fetchPeopleDirectoryUsers();
-      handleUserDetails({email:q[1]});
     }
   }, [isLoggedIn]);
 
   const verifyToken = (info) => {
     const checkDirectoryAuthToken = localStorage.getItem("directoryAuthToken");
     if (checkDirectoryAuthToken) {
-      let verifyToken = JSON.stringify({
+      const verifyToken = JSON.stringify({
+        // userId: info?.externalID,
         userId: "00uwskbw25UJUbQfl1t7",
-        token: checkDirectoryAuthToken.replace(/^"(.*)"$/, "$1"),
+        token: checkDirectoryAuthToken,
       });
 
-      let config = {
+      const config = {
         method: "post",
         maxBodyLength: Infinity,
         url: `${url}auth/verify`,
@@ -86,8 +86,11 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
       axios
         .request(config)
         .then((response) => {
-          console.log(JSON.stringify(response.data));
-          setIsLoggedIn(true);
+          if(response.data.success){
+            console.log(JSON.stringify(response.data));
+            setIsLoggedIn(true);
+          }
+         
         })
         .catch((error) => {
           authenticateUser(info);
@@ -99,12 +102,12 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
   };
 
   const authenticateUser = (info) => {
-    let data = JSON.stringify({
+    const data = JSON.stringify({
+      // userId: info?.externalID,
       userId: "00uwskbw25UJUbQfl1t7",
-      userName: "mazharali.shaikhaliyarvarjang_extern[at]fgsglobal.com",
     });
 
-    let config = {
+    const config = {
       method: "post",
       maxBodyLength: Infinity,
       url:`${url}auth/login`,
@@ -120,7 +123,12 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
         console.log(JSON.stringify(response.data));
         localStorage.setItem(
           "directoryAuthToken",
-          JSON.stringify(response.data.token)
+          response.data.token
+        );
+
+        localStorage.setItem(
+          "loggedEmail",
+          response.data.email
         );
         setIsLoggedIn(true);
       })
@@ -133,15 +141,13 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
   const handleUserDetails = ({email}) => {
     console.log("email", email)
     const checkDirectoryAuthToken = localStorage.getItem("directoryAuthToken");
-    const token = `${checkDirectoryAuthToken}`
-    const newToken = token.replace(/^"|"$/g, "");
-    let config = {
+    const config = {
       method: "get",
       maxBodyLength: Infinity,
       url: `${url}profiles/${email}`,
       headers: {
         "Content-Type": "application/json",
-        "Authorization": newToken
+        "Authorization": checkDirectoryAuthToken
    
       },
     };
@@ -152,8 +158,8 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
       setUserData(response.data.data);
       if(Object.keys(response.data.data.storyblokResolves).length > 0){
           
-          let location = Object.values(response.data.data.storyblokResolves?.location)
-         let t= location.map((e)=>{
+          const location = Object.values(response.data.data.storyblokResolves?.location)
+         const t= location.map((e)=>{
             return Object.keys(e)
 
           })
@@ -168,16 +174,16 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
 
       // sectors
 
-      let sec = Object.values(response.data.data.storyblokResolves?.sectors)
-      let scct= sec.map((e)=>{
+      const sec = Object.values(response.data.data.storyblokResolves?.sectors)
+      const scct= sec.map((e)=>{
          return Object.keys(e)
 
        })
        console.log("scct" , scct)
        setSectors(scct)
 
-       let cap = Object.values(response.data.data.storyblokResolves?.capabilities)
-      let scap= cap.map((e)=>{
+       const cap = Object.values(response.data.data.storyblokResolves?.capabilities)
+      const scap= cap.map((e)=>{
          return Object.keys(e)
 
        })
@@ -185,8 +191,8 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
        setCapabilities(scap)
 
 
-       let prac = Object.values(response.data.data.storyblokResolves?.practice_areas)
-       let sprac= prac.map((e)=>{
+       const prac = Object.values(response.data.data.storyblokResolves?.practice_areas)
+       const sprac= prac.map((e)=>{
           return Object.keys(e)
  
         })
@@ -220,6 +226,8 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
     .catch((error) => {
     });
   }
+
+
 
 
 
