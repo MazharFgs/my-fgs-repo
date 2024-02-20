@@ -68,8 +68,8 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
     const checkDirectoryAuthToken = localStorage.getItem("directoryAuthToken");
     if (checkDirectoryAuthToken) {
       const verifyToken = JSON.stringify({
-        // userId: info?.externalID,
-        userId: "00uwskbw25UJUbQfl1t7",
+        userId: info?.externalID,
+        // userId: "00uwskbw25UJUbQfl1t7",
         token: checkDirectoryAuthToken,
       });
 
