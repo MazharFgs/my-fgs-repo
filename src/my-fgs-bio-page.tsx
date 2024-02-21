@@ -366,17 +366,18 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
     </div>
     <div className="bio-second-section" style={{ width: "35%", float: "left" }}>
     <div className="bio-second-section-image">
-    { imageUrl == "" ?<img
+    { imageUrl == "" ?<img className="bio-profile-img-custom-widget"
                   src={
                     "https://cdn-de1.staffbase.com/eyo-live-de/image/upload/w_166,h_237/c_limit,w_2000,h_2000/v1706792579/OUEOcGLz7i4q2k6tYK6OoNaTKHZrPrL0tARdTSMzo6Q8IAt2JkDsEG10i3g2TC52fsfFW3uRqzVAEWsCJmIS7MvDoF0JVNu5lepOFphe5ZyIWzI9WWR9ysgapfnUxE2tmfYR8Ab10OpReGxtm0Pd4gdTFfGyxzuEv3d2oBFNKWxjqs1bsFBF0VhDpqQdfmTP/Card-ImgPeople.png"
                   }
-                  height="237"
-                  width="166"
+                  height="300"
+                  width="300"
                 /> : <img
+                className="bio-profile-img-custom-widget"
                 src={imageUrl
                 }
-                height="237"
-                width="166"
+                height="300"
+                width="300"
               /> }
     
     </div>
