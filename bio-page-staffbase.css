@@ -1,0 +1,126 @@
+/* ============================================================= */
+/* Start Mazhar Code */
+/* ============================================================= */
+
+.plugin-65d2c7a0ff842f089f9ca925 {
+    
+    .hero-image-widget.content-widget {
+margin: -90px -90px -0px -90px;
+}
+    .scroller {
+        margin-top: -140px !important;
+        margin-left: -100px;
+        margin-right: -100px;    
+    }
+.hero-image {
+  background-image: url("https://cdn-de1.staffbase.com/eyo-live-de/image/upload/c_limit,w_1400/v1708253875/9WyXo5oRAj4zjWwng7GseFCnKNF0dUsIJEo1MgMncKecClb97hmboT2eqXhEK1MyF6flIJiDb3YpQQR5KpztotDedN9UE9PoN8oa1n6UWpLXpk51FjlMcnjGweKJYWTDMaaCzKkSoIba0DdMpux9T3WRnns5DUahr1h8nnn21wWsnlTkxZJ5boU81pd3v57T/MicrosoftTeams-image_%284%29.png");
+  display: flex;
+  height: 200px;
+  padding: 88px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: -4px;
+  align-self: stretch;
+}
+.hero-firstname {
+  color: var(--White, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Bw Beto";
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 42px; /* 84% */
+  margin-left: 150px;
+}
+.hero-title {
+  color: var(--White, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "FK Grotesk";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 30px; /* 125% */
+  margin-left: 150px;
+}
+
+.after-hero-image {
+  margin-top: 25px;
+  padding: 15px;
+}
+.bio-first-section {
+  padding-right: 20px;
+}
+.hero-backlink {
+  margin-left: 150px;
+  color: var(--Gray-4, #f1f1f1);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "FK Grotesk";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px; /* 142.857% */
+  text-decoration-line: underline;
+}
+.hemo-href {
+  text-decoration-line: underline;
+}
+.bio-first-section-inner-div-bio-text-para,
+.bio-second-section-inner-div-bio-text-para {
+  color: var(--Text-Normal, #111);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Paragraph/Regular */
+  font-family: "FK Grotesk";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px;
+  /* 137.5% */
+}
+
+.bio-first-section-inner-div-bio-text-title,
+.bio-second-section-inner-div-bio-text-title {
+  color: var(--Green-3, #2d5453);
+  font-feature-settings: "clig" off, "liga" off;
+
+  /* About Tabs Label */
+  font-family: "Bw Beto";
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 36px;
+  /* 225% */
+}
+
+.bio-first-section-inner-div-bio-dropdown {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bio-dropdown-select {
+  color: var(--Green-3, #2d5453);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Buttons */
+  font-family: "FK Grotesk";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 171.429% */
+  border-radius: 2px;
+  background: var(--Green-5, #e5f3f4);
+  margin: 5px;
+}
+}
+.directory-select-seach {
+padding: 2px 4px;
+align-items: flex-start;
+flex: 1 0 0;
+margin-left: 700px;
+}
+
+.MuiButtonBase-root {
+padding-top: 2px !important;
+padding-bottom: 2px !important;
+}
+
+/* ============================================================= */
+/* End Mazhar Code */
+/* ============================================================= */

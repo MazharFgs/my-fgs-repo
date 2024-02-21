@@ -235,7 +235,7 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
     {isLoggedIn && Object.keys(userData).length > 0 ? 
     <div className="bio-container" style={{ display: "flex", flexWrap: "wrap" }}>
       <div className="hero-image" style={{ width: "100%", float: "left" }}>
-        <span className="hero-backlink"> <a className="hemo-href" href={urlPeopleDirectory}> &lt; back </a>  </span>
+        <span className="hero-backlink"> <a className="hemo-href" href={urlPeopleDirectory}> &lt; Back </a>  </span>
         <div className="hero-firstname">
           {userData?.firstName} {userData?.lastName}
         {/* {userData?.firstName} {{userData?.lastName}} */}
