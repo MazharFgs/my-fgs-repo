@@ -105,8 +105,8 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
 
   const authenticateUser = (info) => {
     const data = JSON.stringify({
-      // userId: info?.externalID,
-      userId: "00uwskbw25UJUbQfl1t7",
+      userId: info?.externalID,
+      // userId: "00uwskbw25UJUbQfl1t7",
     });
 
     const config = {
