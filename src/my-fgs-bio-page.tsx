@@ -89,6 +89,8 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
           if(response.data.success){
             console.log(JSON.stringify(response.data));
             setIsLoggedIn(true);
+          }else{
+            authenticateUser(info);
           }
          
         })
