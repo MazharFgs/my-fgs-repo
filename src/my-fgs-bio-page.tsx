@@ -18,7 +18,7 @@ import axios from "axios";
  * React Component
  */
 const urlPeopleDirectory = 'https://my.fgsglobal.com/content/page/65ccc99094a9e16a1bbe1146';
-const url ="http://127.0.0.1:5000/api/";
+const url ="https://myfgs-staffbase-storyblok-proxy-6nar3kdwr-fgh-global.vercel.app/api/";
 export interface MyFgsBioPageProps extends BlockAttributes {
   widgetApi: WidgetApi;
 }
@@ -56,7 +56,7 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
       // localStorage.setItem("view_profile_email", "dan.stone@fgsglobal.com");
       const bioEmail = localStorage.getItem("view_profile_email");
       // const bioEmail = "dan.stone@fgsglobal.com"
-      console.log("User logged in succcessfully" , bioEmail);
+      // console.log("User logged in succcessfully" , bioEmail);
       if(bioEmail){
         handleUserDetails({email:bioEmail});
       }
@@ -87,7 +87,7 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
         .request(config)
         .then((response) => {
           if(response.data.success){
-            console.log(JSON.stringify(response.data));
+            // console.log(JSON.stringify(response.data));
             setIsLoggedIn(true);
           }else{
             authenticateUser(info);
@@ -96,7 +96,7 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
         })
         .catch((error) => {
           authenticateUser(info);
-          console.log(error);
+          // console.log(error);
         });
     } else {
       authenticateUser(info);
@@ -122,7 +122,7 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
     axios
       .request(config)
       .then((response) => {
-        console.log(JSON.stringify(response.data));
+        // console.log(JSON.stringify(response.data));
         localStorage.setItem(
           "directoryAuthToken",
           response.data.token
@@ -135,13 +135,13 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
         setIsLoggedIn(true);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
  
 
   const handleUserDetails = ({email}) => {
-    console.log("email", email)
+    // console.log("email", email)
     const checkDirectoryAuthToken = localStorage.getItem("directoryAuthToken");
     const config = {
       method: "get",
@@ -156,7 +156,7 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
     axios
     .request(config)
     .then((response) => {
-      console.log("response" , response)
+      // console.log("response" , response)
       setUserData(response.data.data);
       if(Object.keys(response.data.data.storyblokResolves).length > 0){
           
@@ -181,7 +181,7 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
          return Object.keys(e)
 
        })
-       console.log("scct" , scct)
+      //  console.log("scct" , scct)
        setSectors(scct)
 
        const cap = Object.values(response.data.data.storyblokResolves?.capabilities)
@@ -237,7 +237,7 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
     {isLoggedIn && Object.keys(userData).length > 0 ? 
     <div className="bio-container" style={{ display: "flex", flexWrap: "wrap" }}>
       <div className="hero-image" style={{ width: "100%", float: "left" }}>
-        <span className="hero-backlink"> <a className="hemo-href" href={urlPeopleDirectory}> &lt; Back </a>  </span>
+        <span className="hero-backlink"> <a className="hero-href" href={urlPeopleDirectory}> &lt; Back </a>  </span>
         <div className="hero-firstname">
           {userData?.firstName} {userData?.lastName}
         {/* {userData?.firstName} {{userData?.lastName}} */}
@@ -274,7 +274,7 @@ export const MyFgsBioPage = ({ widgetApi }: MyFgsBioPageProps): ReactElement | n
       </div>
       <div className="bio-first-section-inner-div-bio-text">
       <div className="bio-first-section-inner-div-bio-text-title">
-          Life at Fgs
+          Life at Fgs Global
       </div>
       <div className="bio-first-section-inner-div-bio-text-para">
        {useratFgs}
