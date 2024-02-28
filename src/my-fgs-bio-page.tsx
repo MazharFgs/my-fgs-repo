@@ -18,7 +18,7 @@ import axios from "axios";
  * React Component
  */
 const urlPeopleDirectory = 'https://my.fgsglobal.com/content/page/65ccc99094a9e16a1bbe1146';
-const url ="https://myfgs-staffbase-storyblok-proxy-6nar3kdwr-fgh-global.vercel.app/api/";
+const url ="https://myfgs-staffbase-storyblok-proxy-btg6wh5qh-fgh-global.vercel.app/api/";
 export interface MyFgsBioPageProps extends BlockAttributes {
   widgetApi: WidgetApi;
 }
